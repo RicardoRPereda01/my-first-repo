@@ -1,18 +1,10 @@
-#/usr/bin/env bash
-
-all: README.md
-
-README.md: guessinggame.sh
-	echo "## The Unix Workbench Course" > README.md
-	echo "\\" >> README.md
-	echo "**Description**: make a program called *guessinggame.sh*. This program should continuously ask the user to guess the number of files in the current directory, until they guess the correct number." >> README.md
-	echo "\\" >> README.md
-	echo -n "** Make date **" >> README.md
+README.md:
+	touch README.md
+	# TITLE
+	echo "# The title of this project is "guessinggame" " >> README.md
+	# DATE
+	echo "Make file was run at " >> README.md
 	date >> README.md
-	echo "\\" >> README.md
-	echo -n "** Number of lines in guessinggame.sh: **" >> README.md
-	wc -l guessinggame.sh | egrep -o "[0-9]+" >> README.md
-	echo "" >> README.md
-
-clean:
-	rm README.md
+	# NUMBER OF LINES OF CODE
+	echo "- The number of lines in guessinggame.sh code is " >> README.md
+	cat guessinggame.sh | wc -l >> README.md
